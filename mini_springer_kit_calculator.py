@@ -76,25 +76,25 @@ def main():
     
     while(end):
         color = raw_input("Please specify the color of the mini springer kit you want to craft: ")
-        msg = """\nYou need {} brown mini springer kits to craft the {} mini springer kit.
+        try:
+            msg = """\nYou need {} brown mini springer kits to craft the {} mini springer kit.
 These are needed to craft the following mini springer kits:\n""".format(bunny_map[color].count("brown"), color)
-        print(msg)
-        color = color.lower()
-        for bunny_color in bunny_colors[1:]:
-            try:
+            print(msg)
+            color = color.lower()
+            for bunny_color in bunny_colors[1:]:
                 count = bunny_map[color].count(bunny_color)
-            
+
                 if count > 0:
                     print("\tYou need to craft {} {} mini springer kits.".format(count, bunny_color))
                     
-            except KeyError:
-                print("There is no mini springer kit with the color {}, sorry :(".format(color))
+        except KeyError:
+            print("\nThere is no mini springer kit with the color {}, sorry. :(".format(color))
             
         next = raw_input("Do you want to find out the number of mini springer kits for another mini springer kit?\n")
         
         if next.lower().startswith("n"):
             end=False
 
-            
+
 if __name__ == "__main__":
     main()
