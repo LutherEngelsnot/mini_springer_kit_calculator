@@ -94,3 +94,7 @@ These are needed to craft the following mini springer kits:\n""".format(bunny_ma
         
         if next.lower().startswith("n"):
             end=False
+
+            
+if __name__ == "__main__":
+    main()
